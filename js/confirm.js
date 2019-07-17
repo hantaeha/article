@@ -15,3 +15,28 @@ function confirm(){
                 "제품군 : " + category + "\n" +
                 "맛 : " + point + "\n" + "\n"
 }
+function check_onclick(){
+  _form = document.form;
+  if(_form.company_name.value==""||_form.product_name.value==""||
+      _form.launch_date.value==""||_form.category.value==""||
+    _form.point.value==""){
+      if(_form.company_name.value==""){
+        alert("회사명 정보가 비어있습니다.")
+        return _form.company_name.focus();
+      }else if(_form.product_name.value==""){
+        alert("제품명 정보가 비어있습니다.")
+        return _form.product_name.focus();
+      }else if(_form.launch_date.value==""){
+        alert("출시일 정보가 비어있습니다.")
+        return _form.launch_date.focus();
+      }else if(_form.category.value==""){
+        alert("제품군 정보가 비어있습니다.")
+        return _form.catefory.focus();
+      }else if(_form.point.value==""){
+        alert("맛 정보가 비어있습니다.")
+        return _form.point.focus();
+      }
+    }else{
+      alert("정보가 저장되었습니다.")
+    }
+    }
