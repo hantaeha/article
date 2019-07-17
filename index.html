@@ -14,77 +14,163 @@
       font-style: italic;
       font-weight: normal;
     }
-    h1 {
-      margin: 0 0 0.25em;
-    }
-    /* Reset Select */
-    select {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      -ms-appearance: none;
-      appearance: none;
-      outline: 0;
-      box-shadow: none;
-      border: 0 !important;
-      background: #dde5ec;
-      background-image: none;
-    }
-    /* Remove IE arrow */
-    select::-ms-expand {
-      display: none;
-    }
-    /* Custom Select */
-    .select {
-      position: relative;
-      display: flex;
-      width: 20em;
-      height: 3em;
-      line-height: 3;
-      background: #dde5ec;
-      overflow: hidden;
-      border-radius: .25em;
-    }
-    select {
-      flex: 1;
-      padding: 0 .5em;
-      color: #000000;
-      cursor: pointer;
-      font-size: 20px;
-    }
-    /* Arrow */
-    .select::after {
-      content: '\25BC';
-      position: absolute;
-      top: 0;
-      right: 0;
-      padding: 0 1em;
-      background: #5d98f5;
-      cursor: pointer;
-      pointer-events: none;
-      -webkit-transition: .25s all ease;
-      -o-transition: .25s all ease;
-      transition: .25s all ease;
-    }
-    /* Transition */
-    .select:hover::after {
-      color: #deeafd;
+    .container {
+      margin: 80px auto;
+      width: 400px;
+      text-align: center;
     }
 
+    .container > .dropdown {
+      margin: 0 20px;
+      vertical-align: top;
+    }
+
+    .dropdown {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      height: 28px;
+      width: 150px;
+      background: #f2f2f2;
+      border: 1px solid;
+      border-color: white #f7f7f7 whitesmoke;
+      border-radius: 3px;
+      background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+      background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+      background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.06));
+      background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.06));
+      -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .dropdown:before, .dropdown:after {
+      content: '';
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      right: 10px;
+      width: 0;
+      height: 0;
+      border: 4px dashed;
+      border-color: #888888 transparent;
+      pointer-events: none;
+    }
+
+    .dropdown:before {
+      border-bottom-style: solid;
+      border-top: none;
+    }
+
+    .dropdown:after {
+      margin-top: 7px;
+      border-top-style: solid;
+      border-bottom: none;
+    }
+
+    .dropdown-select {
+      position: relative;
+      width: 130%;
+      margin: 0;
+      padding: 6px 8px 6px 10px;
+      height: 28px;
+      line-height: 14px;
+      font-size: 12px;
+      color: #62717a;
+      text-shadow: 0 1px white;
+      background: #f2f2f2; /* Fallback for IE 8 */
+      background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
+      border: 0;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .dropdown-select:focus {
+      z-index: 3;
+      width: 100%;
+      color: #394349;
+      outline: 2px solid #49aff2;
+      outline: 2px solid -webkit-focus-ring-color;
+      outline-offset: -2px;
+    }
+
+    .dropdown-select > option {
+      margin: 3px;
+      padding: 6px 8px;
+      text-shadow: none;
+      background: #f2f2f2;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    /* Fix for IE 8 putting the arrows behind the select element. */
+
+    .lt-ie9 .dropdown {
+      z-index: 1;
+    }
+
+    .lt-ie9 .dropdown-select {
+      z-index: -1;
+    }
+
+    .lt-ie9 .dropdown-select:focus {
+      z-index: 3;
+    }
+
+    /* Dirty fix for Firefox adding padding where it shouldn't. */
+
+    @-moz-document url-prefix() {
+      .dropdown-select {
+        padding-left: 6px;
+      }
+    }
+
+    .dropdown-dark {
+      background: #444;
+      border-color: #111111 #0a0a0a black;
+      background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+      background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+      background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
+      background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+      -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-dark:before {
+      border-bottom-color: #aaa;
+    }
+
+    .dropdown-dark:after {
+      border-top-color: #aaa;
+    }
+
+    .dropdown-dark .dropdown-select {
+      color: #aaa;
+      text-shadow: 0 1px black;
+      background: #444;  /* Fallback for IE 8 */
+    }
+
+    .dropdown-dark .dropdown-select:focus {
+      color: #ccc;
+    }
+
+    .dropdown-dark .dropdown-select > option {
+      background: #444;
+      text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+    }
   </style>
   </head>
-  <body style="color:#093b84;">
+  <body style="color:#3F5FBF;">
     <h1>카테고리</h1>
-    <div class="select">
-      <select name="select" id="select" onchange="window.open(this.value, '_self')">
-        <option value="index.html" selected disabled>선택하세요</option>
-        <option value="food_form.html">식품</option>
-        <option value="service.html">서비스</option>
-        <option value="cosmetic.html">뷰티</option>
-        <option value="tech.html">제품</option>
-      </select>
-    </div>
-  <script  type="text/javascript" charset="utf-8">
-  </script>
+    <section class="container">
+      <div class="dropdown">
+        <select name="select" class="dropdown-select" id="select" onchange="window.open(this.value, '_self')">
+          <option value="">Select…</option>
+          <option value="food_form.html">식품</option>
+          <option value="cosmetic_form.html">화장품</option>
+          <option value="tech_form.html">전자/전기</option>
+        </select>
+      </div>
+    </section>
 
   </body>
 </html>
