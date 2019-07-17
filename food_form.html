@@ -24,14 +24,16 @@
         제품명 : <p><input id="product_name" name="product_name" type="text" minlenth="4" maxlength="20"><p>
         출시일 : <p><input id="launch_date" name="launch_date" type="text" minlenth="4" maxlength="20"><p>
         제품군 : <p><input id="category" name="category" type="text" minlenth="4" maxlength="20"><p>
-        맛 (형용사) : <p><input id="point" name="point" type="text" minlenth="4" maxlength="20"><p>
+        표현 (형용사) : <p><input id="point" name="point" type="text" minlenth="4" maxlength="20"><p>
         <br>
-
-        <span><input type="button" value="저장" style="width:45pt;height:30pt"
-          onclick="check_onclick()">
-        <input type="submit" value="생성" style="width:45pt;height:30pt"
-        onclick="confirm(); alert(confirm_msg)"></span>
         </form>
+
+
+        <span><input type="submit" value="생성" style="width:45pt;height:30pt"
+          onclick="confirm(); check_onclick()">
+        <!--<input type="submit" value="생성" style="width:45pt;height:30pt"
+        onclick="confirm(); alert(confirm_msg)">--></span>
+
 
       <script src="./js/data.js" charset="utf-8"></script>
       <script src="./js/confirm.js" charset="utf-8"></script>
