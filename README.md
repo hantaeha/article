@@ -1,4 +1,4 @@
-# auto_article
+# AUTO ARTICLE
 
 https://hantaeha.github.io/auto_article/
 
