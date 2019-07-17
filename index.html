@@ -4,258 +4,87 @@
     <meta charset="utf-8">
     <title>AUTO ARTICLE</title>
   <style>
-    /* ===== Resets and Housekeeping ===== */
-    * {
-      padding: 0;
-      margin: 0;
-    }
-
-    html {
-      font-size: 16px;
-    }
-
     body {
-      background: #eeebe7;
-      padding: 100px 20px;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-image: linear-gradient(135deg, #f5f7fa 0%, #7a93b9 100%);
+      font-style: italic;
+      font-weight: normal;
     }
-
-    /* ===== Actual Styles ===== */
-
-    /* ===== Horizontal Rule ===== */
-    .rule {
-      margin: 10px 0;
-      border: none;
-      height: 1.5px;
-      background-image: linear-gradient(left, #f0f0f0, #c9bbae, #f0f0f0);
+    h1 {
+      margin: 0 0 0.25em;
     }
-
-    /* ===== Select Box ===== */
-    .sel {
-      font-size: 1rem;
-      display: inline-block;
-      margin: 3em 2em;
-      width: 350px;
-      background-color: transparent;
+    /* Reset Select */
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      appearance: none;
+      outline: 0;
+      box-shadow: none;
+      border: 0 !important;
+      background: #dde5ec;
+      background-image: none;
+    }
+    /* Remove IE arrow */
+    select::-ms-expand {
+      display: none;
+    }
+    /* Custom Select */
+    .select {
       position: relative;
+      display: flex;
+      width: 20em;
+      height: 3em;
+      line-height: 3;
+      background: #dde5ec;
+      overflow: hidden;
+      border-radius: .25em;
+    }
+    select {
+      flex: 1;
+      padding: 0 .5em;
+      color: #000000;
       cursor: pointer;
+      font-size: 20px;
     }
-
-    .sel::before {
-      position: absolute;
-      content: '\f063';
-      font-family: 'FontAwesome';
-      font-size: 2em;
-      color: #FFF;
-      right: 20px;
-      top: calc(50% - 0.5em);
-    }
-
-    .sel.active::before {
-      transform: rotateX(-180deg);
-    }
-
-    .sel__placeholder {
-      display: block;
-      font-family: 'Quicksand';
-      font-size: 2.3em;
-      color: #838e95;
-      padding: 0.2em 0.5em;
-      text-align: left;
-      pointer-events: none;
-      user-select: none;
-      visibility: visible;
-    }
-
-    .sel.active .sel__placeholder {
-      visibility: hidden;
-    }
-
-    .sel__placeholder::before {
+    /* Arrow */
+    .select::after {
+      content: '\25BC';
       position: absolute;
       top: 0;
-      bottom: 0;
-      left: 0;
       right: 0;
-      padding: 0.2em 0.5em;
-      content: attr(data-placeholder);
-      visibility: hidden;
+      padding: 0 1em;
+      background: #5d98f5;
+      cursor: pointer;
+      pointer-events: none;
+      -webkit-transition: .25s all ease;
+      -o-transition: .25s all ease;
+      transition: .25s all ease;
+    }
+    /* Transition */
+    .select:hover::after {
+      color: #deeafd;
     }
 
-    .sel.active .sel__placeholder::before {
-      visibility: visible;
-    }
-
-    .sel__box {
-      position: absolute;
-      top: calc(100% + 4px);
-      left: -4px;
-      display: none;
-      list-style-type: none;
-      text-align: left;
-      font-size: 1em;
-      background-color: #FFF;
-      width: calc(100% + 8px);
-      box-sizing: border-box;
-    }
-
-    .sel.active .sel__box {
-      display: block;
-      animation: fadeInUp 500ms;
-    }
-
-    .sel__box__options {
-      display: list-item;
-      font-family: 'Quicksand';
-      font-size: 1.5em;
-      color: #838e95;
-      padding: 0.5em 1em;
-      user-select: none;
-    }
-
-    .sel__box__options::after {
-      content: '\f00c';
-      font-family: 'FontAwesome';
-      font-size: 0.5em;
-      margin-left: 5px;
-      display: none;
-    }
-
-    .sel__box__options.selected::after {
-      display: inline;
-    }
-
-    .sel__box__options:hover {
-      background-color: #ebedef;
-    }
-
-    /* ----- Select Box Black Panther ----- */
-    .sel {
-      border-bottom: 4px solid rgba(0, 0, 0, 0.3);
-    }
-
-    .sel--black-panther {
-      z-index: 3;
-    }
-
-    /* ----- Select Box Superman ----- */
-    .sel--superman {
-    /*   display: none; */
-      z-index: 2;
-    }
-
-    /* ===== Keyframes ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translate3d(0, 20px, 0);
-      }
-
-      to {
-        opacity: 1;
-        transform: none;
-      }
-    }
-
-    @keyframes fadeOut {
-      from {
-        opacity: 1;
-      }
-
-      to {
-        opacity: 0;
-      }
-    }
   </style>
   </head>
-  <body>
-    <div class="sel sel--black-panther">
-      <select name="select-profession" id="select-profession">
-        <option value="" disabled>Profession</option>
-        <option value="hacker">Hacker</option>
-        <option value="gamer">Gamer</option>
-        <option value="developer">Developer</option>
-        <option value="programmer">Programmer</option>
-        <option value="designer">Designer</option>
+  <body style="color:#093b84;">
+    <h1>카테고리</h1>
+    <div class="select">
+      <select name="select" id="select" onchange="window.open(this.value, '_self')">
+        <option selected disabled>선택</option>
+        <option value="food_form.html">식품</option>
+        <option value="service.html">서비스</option>
+        <option value="cosmetic.html">뷰티</option>
+        <option value="tech.html">제품</option>
       </select>
     </div>
-
-    <hr class="rule">
-
-    <div class="sel sel--superman">
-      <select name="select-superpower" id="select-superpower">
-        <option value="" disabled>Superpower</option>
-        <option value="hacker">Power</option>
-        <option value="gamer">Speed</option>
-        <option value="developer">Acrobatics</option>
-        <option value="programmer">Accuracy</option>
-      </select>
-    </div>
-
-    <!--
-      <span class="sel__placeholder sel__placeholder--black-panther">Placeholder Text</span>
-      <div class="sel__box sel__box--black-panther">
-        <span data-option="option_1" class="sel__box__options sel__box__options--black-panther">Option 1</span>
-        <span data-option="option_2" class="sel__box__options sel__box__options--black-panther">Option 2</span>
-        <span data-option="option_3" class="sel__box__options sel__box__options--black-panther">Option 3</span>
-        <span data-option="option_4" class="sel__box__options sel__box__options--black-panther">Option 4</span>
-        <span data-option="option_5" class="sel__box__options sel__box__options--black-panther">Option 5</span>
-      </div>
-    -->
-
-    <!--
-      .not-active.selected = hide
-      .active.selected = show
-    -->
-  <script type="text/javascript">
-    /* ===== Logic for creating fake Select Boxes ===== */
-    $('.sel').each(function() {
-      $(this).children('select').css('display', 'none');
-
-      var $current = $(this);
-
-      $(this).find('option').each(function(i) {
-        if (i == 0) {
-          $current.prepend($('<div>', {
-            class: $current.attr('class').replace(/sel/g, 'sel__box')
-          }));
-
-          var placeholder = $(this).text();
-          $current.prepend($('<span>', {
-            class: $current.attr('class').replace(/sel/g, 'sel__placeholder'),
-            text: placeholder,
-            'data-placeholder': placeholder
-          }));
-
-          return;
-        }
-
-        $current.children('div').append($('<span>', {
-          class: $current.attr('class').replace(/sel/g, 'sel__box__options'),
-          text: $(this).text()
-        }));
-      });
-    });
-
-    // Toggling the `.active` state on the `.sel`.
-    $('.sel').click(function() {
-      $(this).toggleClass('active');
-    });
-
-    // Toggling the `.selected` state on the options.
-    $('.sel__box__options').click(function() {
-      var txt = $(this).text();
-      var index = $(this).index();
-
-      $(this).siblings('.sel__box__options').removeClass('selected');
-      $(this).addClass('selected');
-
-      var $currentSel = $(this).closest('.sel');
-      $currentSel.children('.sel__placeholder').text(txt);
-      $currentSel.children('select').prop('selectedIndex', index + 1);
-    });
-
-    </script>
+  <script  type="text/javascript" charset="utf-8">
+  </script>
 
   </body>
 </html>
