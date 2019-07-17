@@ -31,12 +31,13 @@ function check_onclick(){
         return _form.launch_date.focus();
       }else if(_form.category.value==""){
         alert("제품군 정보가 비어있습니다.")
-        return _form.catefory.focus();
+        return _form.category.focus();
       }else if(_form.point.value==""){
-        alert("맛 정보가 비어있습니다.")
+        alert("표현 정보가 비어있습니다.")
         return _form.point.focus();
       }
     }else{
-      alert("정보가 저장되었습니다.")
+      alert(confirm_msg)
+      form.submit();
     }
     }
