@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AUTO ARTICLE - FOOD</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #7a93b9 100%);
+        font-style: italic;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body style="color:#093b84;">
+      <br>
+      <textarea id="auto_title" rows="4" cols="50"></textarea><br>
+      <button onclick="processUser(); auto_title()" style="width:60pt;height:30pt">제목 생성</button>
+
+      <br>
+      <textarea id="auto_article" rows="30" cols="50"></textarea><br>
+      <button onclick="auto_article()" style="width:60pt;height:30pt">기사 생성</button>
+    <script src='data.js' charset='utf8'></script>
+    <script type="text/javascript" charset="utf-8">
+      function processUser()
+            {
+            var url = location.search;
+            var _url = decodeURI(url);
+            _url = _url.replace(/\+/gi, " ");
+            var parameters = _url.split("&");
+            var temp = parameters[0].split("=");
+            c_n = unescape(temp[1]);
+            temp = parameters[1].split("=");
+            p_n = unescape(temp[1]);
+            temp = parameters[2].split("=");
+            l_d = unescape(temp[1]);
+            temp = parameters[3].split("=");
+            point = unescape(temp[1]);
+            }
+    </script>
+  </body>
+</html>
