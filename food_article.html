@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AUTO ARTICLE - FOOD</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: linear-gradient(135deg, #f5f7fa 0%, #7a93b9 100%);
+        font-style: italic;
+        font-weight: normal;
+      }
+    </style>
+  </head>
+  <body style="color:#093b84;">
+      <br>
+      <textarea id="food_title" rows="4" cols="50"></textarea><br>
+      <button onclick="params(); food_title()" style="width:60pt;height:30pt">제목 생성</button>
+
+      <br>
+      <textarea id="food_article" rows="30" cols="50"></textarea><br>
+      <button onclick="food_article()" style="width:60pt;height:30pt">기사 생성</button>
+    <script src='data.js' charset='utf8'></script>
+    <script type="text/javascript" charset="utf-8">
+            function food_title(){
+              title = company_name + ',' + " " +
+                      launch_date + " " +
+                      point + " " +"맛의" + " " +
+                      "'" + product_name + "'" + " " + "출시";
+              document.getElementById("food_title").value = title;
+            }
+
+            function food_article(){
+              article =
+              "<브랜드 소개>브랜드 " + company_name + "은/는 " + launch_date + " " + point + " " + "맛이 일품인 " + product_name + "을/를" + " 출시한다." + "\n" +
+              "이번에 출시되는 " + product_name + "은/는 " + "<판매 수량 혹은 판촉 정보> " + "판매된다." + "\n" +
+              company_name + "의 이번 " + product_name + "은/는 " + "<제품 특징 1> " + point + "맛을 느낄 수 있다." + "\n" +
+              product_name + "은/는 " + "총 <숫자>가지의 맛으로 <제품 라인업 정보>로 구성됐다." + "\n" +
+              "또한 <제품 특징 2>" + "구성/개발되었다." + "\n" +
+              company_name + "은/는 주 고객이 " + "<연령>대~<연령>대 <성별>고객임을 인지하고 <기간>개월의 개발기간 동안 수 차례의 블라인드테스트를 거치며 맛을 찾아냈다." + "\n" +
+              company_name + "은/는 <제품 특징 3> 실용성과 가성비를 키워 " + category + "를 선호하는 고객의 큰 호응을 기대하고 있다." + "\n" +
+              company_name + "가 이처럼 " + product_name + "상품을 출시하게 된 배경에는 " + "<제품 전략>는 전략을 세웠기 때문이다." + "\n" +
+              "<업체 개발 관련 직원>은 <인터뷰 내용>고 말했다."
+              ;
+              document.getElementById("food_article").value = article;
+            }
+    </script>
+  </body>
+</html>
