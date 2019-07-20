@@ -40,4 +40,4 @@ function check_onclick(){
       alert(confirm_msg)
       form.submit();
     }
-    }
+}
