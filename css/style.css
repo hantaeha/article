@@ -7,7 +7,7 @@ body {
   align-items: center;
   height: 100vh;
   background-image: linear-gradient(135deg, #f5f7fa 0%, #7a93b9 100%);
-  font-style: italic;
+  font-style: italic bold;
   font-weight: normal;
 }
 
@@ -19,7 +19,6 @@ body {
   cursor: pointer;
   display: inline-block;
   font-family: 'BenchNine', Arial, sans-serif;
-  font-size: 1em;
   font-size: 22px;
   line-height: 1em;
   margin: 15px 40px;
@@ -27,6 +26,7 @@ body {
   padding: 12px 40px 10px;
   position: relative;
   text-transform: uppercase;
+  border-radius: 4px;
   font-weight: 700;
 }
 .snip1535:before,
@@ -68,8 +68,8 @@ body {
 }
 
 .container {
-  margin: 80px auto;
-  
+  margin: 10px auto;
+  /* width: 300px auto; */
   text-align: center;
 }
 
@@ -82,8 +82,8 @@ body {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  height: 30px;
-  width: 200px;
+  height: 30px; /* 드롭박스 높이 */
+  width: 200px; /* 드롭박스 넓이 */
   background: #f2f2f2;
   border: 1px solid;
   border-color: white #f7f7f7 whitesmoke;
@@ -124,10 +124,10 @@ body {
   position: relative;
   width: 130%;
   margin: 0;
-  padding: 6px 8px 6px 10px;
+  padding: 6px 8px 6px 10px; /* 여백 */
   height: 28px;
   line-height: 14px;
-  font-size: 16px;
+  font-size: 16px; /* 폰트 크기 */
   color: #62717a;
   text-shadow: 0 1px white;
   background: #f2f2f2; /* Fallback for IE 8 */
@@ -210,3 +210,66 @@ body {
   background: #444;
   text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 }
+
+.spiner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(0, 0, 0, .2);
+  border-top-color: #3F5FBF;
+  border-radius: 50%;
+  animation: 1s .2s spin infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.create_button {
+  background-color: #3F5FBF;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'BenchNine', Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1em;
+  margin: 15px 40px;
+  outline: none;
+  padding: 12px 40px 10px;
+  position: relative;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 700;
+  transition-duration: 0.5s;
+  text-align: center;
+  overflow: hidden;
+}
+
+.create_button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.create_button:after {
+  content: "";
+  background: #4f79f7;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -40px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 1s
+}
+
+.create_button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
+.create_button:focus { outline:0; }
