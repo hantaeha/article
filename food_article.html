@@ -3,40 +3,65 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="utf-8">
     <title>AUTO ARTICLE - FOOD</title>
-    <link rel="stylesheet" href="./css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="./css/style_test.css" type="text/css"/>
   </head>
   <body style="color:#093b84;">
       <br>
       <textarea id="food_title" rows="4" cols="50"></textarea><br>
-      <button class="snip1535" onclick="params(); food_title()">제목 생성</button>
+      <button class="create_button" onclick="params(); food_title()">제목 생성</button>
 
       <br>
       <textarea id="food_article" rows="30" cols="50"></textarea><br>
-      <button class="snip1535" onclick="food_article()">기사 생성</button>
+      <button class="create_button" onclick="params(); food_article()">기사 생성</button>
+
+      <br>
+      <button class="snip1535" onclick="go_main()">메인</button>
+
     <script src='./js/data.js' charset='utf8'></script>
     <script type="text/javascript" charset="utf-8">
             function food_title(){
-              title = company_name + ',' + " " +
-                      launch_date + " " +
-                      point + " " +"맛의" + " " +
-                      "'" + product_name + "'" + " " + "출시";
+              var titles = new Array();
+              titles[0] = company_name + ',' + " " + launch_date + " " + point + " 맛의" + " " + "'" + product_name + "'" + " " + "출시";
+              titles[1] = company_name + "," + " " + point + " " + "'" + product_name + "'" + " 출시"
+              title = titles[Math.floor(Math.random()*titles.length)];
               document.getElementById("food_title").value = title;
             }
 
             function food_article(){
-              article =
-              "<브랜드 소개>브랜드 " + company_name + "은/는 " + launch_date + " " + point + " " + "맛이 일품인 " + product_name + "을/를" + " 출시한다." + "\n" +
-              "이번에 출시되는 " + product_name + "은/는 " + "<판매 수량 혹은 판촉 정보> " + "판매된다." + "\n" +
-              company_name + "의 이번 " + product_name + "은/는 " + "<제품 특징 1> " + point + "맛을 느낄 수 있다." + "\n" +
-              product_name + "은/는 " + "총 <숫자>가지의 맛으로 <제품 라인업 정보>로 구성됐다." + "\n" +
-              "또한 <제품 특징 2>" + "구성/개발되었다." + "\n" +
-              company_name + "은/는 주 고객이 " + "<연령>대~<연령>대 <성별>고객임을 인지하고 <기간>개월의 개발기간 동안 수 차례의 블라인드테스트를 거치며 맛을 찾아냈다." + "\n" +
-              company_name + "은/는 <제품 특징 3> 실용성과 가성비를 키워 " + category + "를 선호하는 고객의 큰 호응을 기대하고 있다." + "\n" +
-              company_name + "가 이처럼 " + product_name + "상품을 출시하게 된 배경에는 " + "<제품 전략>는 전략을 세웠기 때문이다." + "\n" +
-              "<업체 개발 관련 직원>은 <인터뷰 내용>고 말했다."
+              var articles = new Array();
+              articles[0] =
+              "<브랜드 소개> 브랜드 " + company_name + "은/는 " + launch_date + " " + point + " 맛이 일품인 " + product_name + "을/를 출시한다." + "\n" +
+              "이번에 출시되는 " + product_name + "은/는 " + "<판매 수량 혹은 포장 판촉 정보> " + "판매된다." + "\n" +
+              company_name + "의 이번 " + product_name + "은/는 <제품 특징 1> " + point + " 맛을 느낄 수 있다." + "\n" +
+              product_name + "은/는 총 <판매 수량 혹은 판촉 정보>로 구성됐다." + "\n" +
+              "또한 <제품 특징 2> 구성/개발되었다." + "\n" +
+              company_name + "은/는 주 고객이 <연령 혹은 성별>고객임을 인지하고 <개발기간 혹은 과정>을/를 거치며 맛을 찾아냈다." + "\n" +
+              company_name + "은/는 <제품 특징 3> 실용성과 가성비를 키워 " + category + "을/를 선호하는 고객의 큰 호응을 기대하고 있다." + "\n" +
+              company_name + "이/가 이처럼 " + product_name + "상품을 출시하게 된 배경에는 <제품 전략>는 전략을 세웠기 때문이다." + "\n" +
+              "<제품 관련 업체 직원>은 <인터뷰 내용>고 말했다."
               ;
+
+              articles[1] =
+              "<브랜드 소개> 브랜드" + company_name + "이/가 " + point + " " + "'" + product_name + "을/를 출시했다." + product_name + "은/는 새로움을 추구하는 소비자를 위해 특별된 " + category + "로 이색적인 즐거움을 선사한다." + "\n" +
+              company_name + "은/는 최근 <최근 출시 제품 경향 혹은 시리즈 이름>을/를 적용한 새로운 제품을 내놓고 있다. 처음으로 소비자와 만나는 " + product_name + "에서도 <최근 출시 제품 경향 혹은 시리즈 이름>이 적용되었으며 <제품 특징 1>은/는 확연히 눈낄을 끈다. <제품 특징 2> 신선한 시각적 재미도 더해졌다." + "\n" +
+              "디저트를 찾아 돌아다니는 '디저트 노마드(dessert nomad)', SNS 공유가 자연스러운 '인스타그래머블(Instagramable)' 트렌드가 밀레니얼 세대와 Z세대를 중심으로 확산되고 있다. " + company_name + "은/는 제품과 장소를 통한 인증샷이 새로운 소비 트렌드로 떠오르고 있다며 소비자의 취향에 맞춰 " + category +"를 선도해나가기 위해 " + product_name + "을 선보이게 됐다고 밝혔다." + "\n" +
+              product_name + "은/는 현재 <판매처>에서 구매가 가능하며 주요 지역의 마트에서도 만나볼 수 있다. " + product_name + "은/는 <판매 수량 혹은 포장 판촉 정보>이/가 들어있고 소비자 정가 <가격>원대에 구매할 수 있다."
+              ;
+
+              articles[2] =
+              company_name + "(<대표이사 정보>)이/가 " + company_name + " <회사 연혁>년의 " + category + " 전문 노하우가 담긴 신제품으로 시장 공략에 나선다." + "\n" +
+              company_name + "은/는 <제품 특징 1> " + product_name + "을/를 " + launch_date + " 출시했다고 밝혔다. 이 제품들을 통해 국내 1등 " + category + " 기업으로서 국내 " + category + " 시장을 주도한다는 전략이다." + "\n" +
+              product_name + "은/는 <제품 특징 2> 제품이다. <판매 수량 혹은 포장 판촉 정보>은/는 구성이다." + "\n" +
+              product_name + "은/는 <제품 특징 3> 제품이다." + "\n" +
+              company_name + "은/는 <회사설립연도> 창립 이후 <최초 판매 제품>을/를 시작으로 국내 " + category + " 시장 1위 자리를 지켜오고 있는 기업이다."
+              company_name + "은/는 " + product_name +"은/는 " + point + " " + category + "에 대한 소비자 니즈를 충족시킬 수 있는 제품이라며 가정에서는 물론 야외에서도 간편하게 활용할 수 있는 제품으로 소비자들의 눈길을 사로잡을 전망이라고 밝혔다."
+              product_name + "의 <판매 수량 혹은 포장 판촉 정보>이며 가격은<판매 수량 혹은 판촉 정보>원이다."
+              ;
+
+              article = articles[Math.floor(Math.random()*articles.length)];
               document.getElementById("food_article").value = article;
             }
     </script>
+    <script src='./js/go.js' charset='utf8'></script>
   </body>
 </html>
