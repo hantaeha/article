@@ -1,5 +1,5 @@
-# AUTO ARTICLE (PROTO)
+# AUTO ARTICLE (BETA)
 
-Page Link : [PROTO](https://hantaeha.github.io/auto-article/)
+Page Link : [BETA](https://hantaeha.github.io/auto-article/)
 
 2019.07.17 : 식품
