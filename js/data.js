@@ -1,4 +1,4 @@
-//data
+// data
 
 var company_name; var product_name; var launch_date; var category; var point;
 var title; var article;
