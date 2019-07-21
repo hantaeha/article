@@ -5,22 +5,22 @@
     <title>FOOD | AUTO ARTICLE</title>
     <link rel="stylesheet" href="./css/style.css" type="text/css"/>
   </head>
-  <body style="color:#3F5FBF;">
+  <body>
 
-    <h1>식품</h1>
-      <form action="food_article.html" accpt-charset="utf-8" name="form" method="GET">
+      <h1>식품</h1>
+
+      <form style="color:#000000;" action="food_article.html" accpt-charset="utf-8" name="form" method="GET">
         회사명 : <br><input id="company_name" name="company_name" type="text" minlenth="4" maxlength="20" style="width:200pt; height:12pt; font-size:10pt"><br><br>
         제품명 : <br><input id="product_name" name="product_name" type="text" minlenth="4" maxlength="20" style="width:200pt; height:12pt; font-size:10pt"><br><br>
         출시일 : <br><input id="launch_date" name="launch_date" type="text" minlenth="4" maxlength="20" style="width:200pt; height:12pt; font-size:10pt"><br><br>
         제품군 : <br><input id="category" name="category" type="text" minlenth="4" maxlength="20" style="width:200pt; height:12pt; font-size:10pt"><br><br>
         표현 (형용사) : <br><input id="point" name="point" type="text" minlenth="4" maxlength="20" style="width:200pt; height:12pt; font-size:10pt"><br>
-        </form>
+      </form>
 
-        <span>
+      <span>
         <button class="snip1535" type="submit" onclick="confirm(); check_onclick();">생성</button><br>
         <button class="snip1535" onclick="go_main()">메인</button>
-        <!--<input type="submit" value="생성" style="width:45pt;height:30pt"
-        onclick="confirm(); alert(confirm_msg)">--></span>
+      </span>
 
       <script src="./js/data.js" charset="utf-8"></script>
       <script src="./js/confirm.js" charset="utf-8"></script>
