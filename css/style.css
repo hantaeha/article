@@ -6,14 +6,16 @@ body {
   justify-content: top;
   align-items: center;
   height: 100vh;
-  background-image: linear-gradient(135deg, #f5f7fa 0%, #7a93b9 100%);
-  font-style: italic bold;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #919599 100%);
+  font-family: 'Droid Serif', serif;
   font-weight: normal;
 }
 
+/*/////////////////////// button ///////////////////////*/
+
 @import url(https://fonts.googleapis.com/css?family=BenchNine:700);
 .snip1535 {
-  background-color: #3F5FBF;
+  background-color: #000000;
   border: none;
   color: #ffffff;
   cursor: pointer;
@@ -42,7 +44,7 @@ body {
   width: 24px;
 }
 .snip1535:before {
-  border-color: #3F5FBF;
+  border-color: #000000;
   border-right-width: 2px;
   border-top-width: 2px;
   right: -5px;
@@ -50,14 +52,14 @@ body {
 }
 .snip1535:after {
   border-bottom-width: 2px;
-  border-color: #3F5FBF;
+  border-color: #000000;
   border-left-width: 2px;
   bottom: -5px;
   left: -5px;
 }
 .snip1535:hover,
 .snip1535.hover {
-  background-color: #3F5FBF;
+  background-color: #000000;
 }
 .snip1535:hover:before,
 .snip1535.hover:before,
@@ -66,6 +68,8 @@ body {
   height: 100%;
   width: 100%;
 }
+
+/*/////////////////////// dropkbox ///////////////////////*/
 
 .container {
   margin: 10px auto;
@@ -105,7 +109,7 @@ body {
   width: 0;
   height: 0;
   border: 4px dashed;
-  border-color: #888888 transparent;
+  border-color: #000000 transparent;
   pointer-events: none;
 }
 
@@ -128,7 +132,7 @@ body {
   height: 28px;
   line-height: 14px;
   font-size: 16px; /* 폰트 크기 */
-  color: #62717a;
+  color: #000000;
   text-shadow: 0 1px white;
   background: #f2f2f2; /* Fallback for IE 8 */
   background: rgba(0, 0, 0, 0) !important; /* "transparent" doesn't work with Opera */
@@ -180,6 +184,8 @@ body {
 .dropdown-dark {
   background: #444;
   border-color: #111111 #0a0a0a black;
+  height: 30px; /* 드롭박스 높이 */
+  width: 200px; /* 드롭박스 넓이 */
   background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
   background-image: -moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
   background-image: -o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.4));
@@ -189,15 +195,15 @@ body {
 }
 
 .dropdown-dark:before {
-  border-bottom-color: #aaa;
+  border-bottom-color: #ffffff;
 }
 
 .dropdown-dark:after {
-  border-top-color: #aaa;
+  border-top-color: #ffffff;
 }
 
 .dropdown-dark .dropdown-select {
-  color: #aaa;
+  color: #ffffff;
   text-shadow: 0 1px black;
   background: #444;  /* Fallback for IE 8 */
 }
@@ -211,11 +217,15 @@ body {
   text-shadow: 0 1px rgba(0, 0, 0, 0.4);
 }
 
+
+/*/////////////////////// spiner ///////////////////////*/
+/* html : <p><div class="spiner"></div> */
+
 .spiner {
   width: 50px;
   height: 50px;
   border: 4px solid rgba(0, 0, 0, .2);
-  border-top-color: #3F5FBF;
+  border-top-color: #000000;
   border-radius: 50%;
   animation: 1s .2s spin infinite;
 }
@@ -226,8 +236,10 @@ body {
   }
 }
 
+/*/////////////////////// create button ///////////////////////*/
+
 .create_button {
-  background-color: #3F5FBF;
+  background-color: #000000;
   border: none;
   color: #ffffff;
   cursor: pointer;
@@ -251,12 +263,12 @@ body {
 .create_button:hover {
   background: #fff;
   color: #000;
-  box-shadow: 0px 2px 10px 5px #5079f2;
+  box-shadow: 0px 2px 10px 5px #000000;
 }
 
 .create_button:after {
   content: "";
-  background: #4f79f7;
+  background: #000000;
   display: block;
   position: absolute;
   padding-top: 300%;
@@ -275,3 +287,52 @@ body {
 }
 
 .create_button:focus { outline:0; }
+
+/*/////////////////////// loader ///////////////////////*/
+
+@import "compass/css3";
+
+.loader {
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  padding: 5px 5px;
+  line-height: 40px;
+  background-color: #000000;
+	@include border-radius(4px);
+  text-align: center;
+  border-radius: 4px;
+}
+.loader span{
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	margin-left: 10px;
+	border-radius: 100%;
+	background-color: rgba(255,255,255,1);
+	-webkit-animation-name: loading;
+	-webkit-animation-duration:1.5s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-function:linear;
+}
+.loader :nth-child(1){
+  margin-left: 0;
+	-webkit-animation-delay: 0.37s;
+}
+.loader :nth-child(2){
+	-webkit-animation-delay: 0.5s;
+}
+.loader :nth-child(3){
+	-webkit-animation-delay: 0.8s;
+}
+@-webkit-keyframes loading {
+	0%{
+		background-color: rgba(255,255,255,0.2);
+	}
+	50%{
+		background-color: rgba(255,255,255,1);
+	}
+	100%{
+		background-color: rgba(255,255,255,0.2);
+	}
+}
